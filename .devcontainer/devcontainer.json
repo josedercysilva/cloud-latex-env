@@ -1,0 +1,31 @@
+{
+    "name": "Cloud LaTeX Environment (Tectonic)",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/neovim:1": {}
+    },
+    "postCreateCommand": "curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh && sudo mv tectonic /usr/local/bin/",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "James-Yu.latex-workshop",
+                "vscodevim.vim"
+            ],
+            "settings": {
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "tectonic",
+                        "command": "tectonic",
+                        "args": ["--synctex", "--keep-logs", "%DOC%.tex"]
+                    }
+                ],
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "tectonic",
+                        "tools": ["tectonic"]
+                    }
+                ]
+            }
+        }
+    }
+}
