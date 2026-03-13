@@ -1,35 +1,35 @@
 {
-    "name": "Cloud LaTeX (Alpine + Tectonic + Neovim)",
-    "image": "mcr.microsoft.com/devcontainers/base:alpine",
-    "postCreateCommand": "sudo apk update && sudo apk add neovim git curl && curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh && sudo mv tectonic /usr/local/bin/",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "James-Yu.latex-workshop",
-                "vscodevim.vim"
-            ],
-            "settings": {
-                "latex-workshop.latex.tools": [
-                    {
-                        "name": "tectonic",
-                        "command": "tectonic",
-                        "args": [
-                            "--synctex",
-                            "--keep-logs",
-                            "%DOC%.tex"
-                        ]
-                    }
-                ],
-                "latex-workshop.latex.recipes": [
-                    {
-                        "name": "tectonic",
-                        "tools": [
-                            "tectonic"
-                        ]
-                    }
-                ],
-                "latex-workshop.latex.recipe.default": "first"
-            }
-        }
+  "name": "Cloud LaTeX (Alpine + Tectonic + Neovim)",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "postCreateCommand": "sudo apk update && sudo apk add neovim git curl && curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh && sudo mv tectonic /usr/local/bin/ && git clone https://github.com/josedercysilva/dotfiles.git ~/dotfiles && bash ~/dotfiles/install.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "vscodevim.vim"
+      ],
+      "settings": {
+        "latex-workshop.latex.tools": [
+          {
+            "name": "tectonic",
+            "command": "tectonic",
+            "args": [
+              "--synctex",
+              "--keep-logs",
+              "%DOC%.tex"
+            ]
+          }
+        ],
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "tectonic",
+            "tools": [
+              "tectonic"
+            ]
+          }
+        ],
+        "latex-workshop.latex.recipe.default": "first"
+      }
     }
+  }
 }
