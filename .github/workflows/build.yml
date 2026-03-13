@@ -1,0 +1,28 @@
+name: Compilacao LaTeX (Tectonic)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # Permite acionar a compilação manualmente pelo site
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compilar Documento
+        run: tectonic main.tex
+
+      - name: Upload do PDF Gerado
+        uses: actions/upload-artifact@v4
+        with:
+          name: Relatorio-Cloud-PDF
+          path: main.pdf
+          retention-days: 7
