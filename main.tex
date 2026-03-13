@@ -1,0 +1,38 @@
+\documentclass[
+    paper=a4,
+    fontsize=11pt,
+    twoside=false
+]{scrreprt}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[brazilian]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    urlcolor=RoyalBlue,
+    pdftitle={Relatório Cloud LaTeX},
+    pdfauthor={José Dercy Silva}
+}
+
+\begin{document}
+
+\title{Relatório Cloud LaTeX}
+\subtitle{Ambiente de Alta Performance com Tectonic e GitHub Actions}
+\author{José Dercy Silva}
+\date{\today}
+\maketitle
+
+\chapter{Introdução}
+Este documento atesta a configuração bem-sucedida do repositório local. O código-fonte está sendo versionado via Git e a arquitetura está preparada para integração contínua.
+
+\section{Próximos Passos}
+A próxima fase da infraestrutura envolverá a automação da compilação utilizando os servidores da Microsoft via GitHub Actions.
+
+\end{document}
