@@ -1,10 +1,7 @@
 {
-    "name": "Cloud LaTeX Environment (Tectonic)",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-        "ghcr.io/devcontainers/features/neovim:1": {}
-    },
-    "postCreateCommand": "curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh && sudo mv tectonic /usr/local/bin/",
+    "name": "Cloud LaTeX (Alpine + Tectonic + Neovim)",
+    "image": "mcr.microsoft.com/devcontainers/base:alpine",
+    "postCreateCommand": "sudo apk update && sudo apk add neovim git curl && curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh && sudo mv tectonic /usr/local/bin/",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -16,15 +13,22 @@
                     {
                         "name": "tectonic",
                         "command": "tectonic",
-                        "args": ["--synctex", "--keep-logs", "%DOC%.tex"]
+                        "args": [
+                            "--synctex",
+                            "--keep-logs",
+                            "%DOC%.tex"
+                        ]
                     }
                 ],
                 "latex-workshop.latex.recipes": [
                     {
                         "name": "tectonic",
-                        "tools": ["tectonic"]
+                        "tools": [
+                            "tectonic"
+                        ]
                     }
-                ]
+                ],
+                "latex-workshop.latex.recipe.default": "first"
             }
         }
     }
